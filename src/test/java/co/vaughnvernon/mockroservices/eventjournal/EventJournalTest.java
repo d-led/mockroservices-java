@@ -83,11 +83,11 @@ public class EventJournalTest {
     assertEquals(3, eventStream123.streamVersion);
     assertEquals(3, eventStream123.stream.size());
 
-    assertThat(eventStream123.stream).containsExactly(new EventValue[]{
+    assertThat(eventStream123.stream).containsExactly(
             new EventValue("name123", 1, "type1", "type1_instance1", ""),
             new EventValue("name123", 2, "type1-1", "type1-1_instance1", ""),
-            new EventValue("name123", 3, "type1-2", "type1-2_instance1", ""),
-    });
+            new EventValue("name123", 3, "type1-2", "type1-2_instance1", "")
+    );
     
     final EventStream eventStream456 = streamReader.streamFor("name456");
     assertEquals(2, eventStream456.streamVersion);
