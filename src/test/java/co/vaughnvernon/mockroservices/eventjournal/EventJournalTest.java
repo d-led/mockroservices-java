@@ -17,6 +17,7 @@ package co.vaughnvernon.mockroservices.eventjournal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
+import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Test;
 
@@ -81,9 +82,12 @@ public class EventJournalTest {
     final EventStream eventStream123 = streamReader.streamFor("name123");
     assertEquals(3, eventStream123.streamVersion);
     assertEquals(3, eventStream123.stream.size());
-    assertEquals(new EventValue("name123", 1, "type1", "type1_instance1", ""), eventStream123.stream.get(0));
-    assertEquals(new EventValue("name123", 2, "type1-1", "type1-1_instance1", ""), eventStream123.stream.get(1));
-    assertEquals(new EventValue("name123", 3, "type1-2", "type1-2_instance1", ""), eventStream123.stream.get(2));
+
+    assertThat(eventStream123.stream).containsExactly(new EventValue[]{
+            new EventValue("name123", 1, "type1", "type1_instance1", ""),
+            new EventValue("name123", 2, "type1-1", "type1-1_instance1", ""),
+            new EventValue("name123", 3, "type1-2", "type1-2_instance1", ""),
+    });
     
     final EventStream eventStream456 = streamReader.streamFor("name456");
     assertEquals(2, eventStream456.streamVersion);
