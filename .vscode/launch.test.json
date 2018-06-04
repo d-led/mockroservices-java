@@ -1,0 +1,28 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "mockroservices",
+                "projectName": "mockroservices",
+                "workingDirectory": "/Users/dmitryledentsov/src/mockroservices-java",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "mockroservices",
+                "projectName": "mockroservices",
+                "workingDirectory": "/Users/dmitryledentsov/src/mockroservices-java",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
